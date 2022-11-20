@@ -1,11 +1,19 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import { Box } from "@mui/material";
+
+import { MainHeader, Footer } from "../components";
+import ROUTES from "../routes";
 
 const MainLayout = () => {
+    const location = useLocation();
+
     return (
         <div>
-            asdf
-            <Outlet />
-            asd
+            {location.pathname !== ROUTES.HOME && <MainHeader />}
+            <Box sx={{ minHeight: 800 }}>
+                <Outlet />
+            </Box>
+            <Footer />
         </div>
     );
 };
