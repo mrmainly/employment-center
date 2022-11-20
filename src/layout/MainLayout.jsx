@@ -10,7 +10,7 @@ const MainLayout = () => {
     return (
         <div>
             {location.pathname !== ROUTES.HOME && <MainHeader />}
-            <Box sx={{ minHeight: 800 }}>
+            <Box sx={{ bgcolor: "bg.main" }}>
                 <Outlet />
             </Box>
             <Footer />

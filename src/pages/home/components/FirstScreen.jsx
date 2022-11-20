@@ -54,10 +54,10 @@ const FirstScreen = () => {
                     sx={{
                         color: "customColors.white",
                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-                        fontSize: 50,
+                        fontSize: 53,
                         fontWeight: 600,
                         width: {
-                            xl: "60%",
+                            xl: "65%",
                             lg: "50%",
                             md: "60%",
                             sm: "100%",
@@ -82,8 +82,8 @@ const FirstScreen = () => {
                     sx={{
                         display: "flex",
                         alignItems: "center",
-                        mt: 7,
-                        mb: 10,
+                        mt: 9,
+                        mb: 12,
                     }}
                 >
                     <Box sx={{ display: "flex" }}>

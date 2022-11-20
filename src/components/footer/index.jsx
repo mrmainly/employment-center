@@ -1,6 +1,11 @@
 import { Box, Container, Typography, Grid } from "@mui/material";
 import { styled } from "@mui/system";
 
+const Img = styled("img")(({ theme }) => ({
+    height: 32,
+    marginRight: 24,
+}));
+
 const Footer = () => {
     const list = [
         {
@@ -43,6 +48,14 @@ const Footer = () => {
         },
     ];
 
+    const imglist = [
+        "youtube.png",
+        "vk.png",
+        "ok.png",
+        "appstore.png",
+        "googleplay.png",
+    ];
+
     return (
         <Box
             sx={{
@@ -61,8 +74,18 @@ const Footer = () => {
                             {item.values.map((item, index) => (
                                 <Typography
                                     key={index}
-                                    color="customColors.grey"
-                                    sx={{ mt: 1 }}
+                                    sx={{
+                                        mt: 1,
+                                        fontSize: 14,
+                                        color: "customColors.white",
+                                        opacity: 0.4,
+                                        transition: "all 1s ease",
+                                        cursor: "pointer",
+                                        width: "max-content",
+                                        "&:hover": {
+                                            opacity: 1,
+                                        },
+                                    }}
                                 >
                                     {item.label}
                                 </Typography>
@@ -70,7 +93,34 @@ const Footer = () => {
                         </Grid>
                     ))}
                 </Grid>
-                <Box sx={{ display: "flex" }}></Box>
+                <Box sx={{ display: "flex", mt: 2 }}>
+                    {imglist.map((item, index) => (
+                        <Img
+                            key={index}
+                            src={`/img/${item}`}
+                            alt=""
+                        />
+                    ))}
+                </Box>
+                <Box
+                    sx={{
+                        opacity: 0.15,
+                        marginTop: 2,
+                        marginBottom: 2,
+                        width: "100%",
+                        border: "1px solid #FFFFFF",
+                    }}
+                ></Box>
+                <Typography
+                    sx={{
+                        color: "customColors.white",
+                        fontWeight: 400,
+                        opacity: 0.4,
+                        fontSize: 14,
+                    }}
+                >
+                    Ⓒ 2022 Группа компаний Работа в Якутии
+                </Typography>
             </Container>
         </Box>
     );

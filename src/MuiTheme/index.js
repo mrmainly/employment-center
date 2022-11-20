@@ -16,10 +16,16 @@ const theme = createTheme({
             grey: "#6C757D",
             white: "#FFFFFF",
         },
+        bg: {
+            main: "#F9F9F9",
+        },
     },
     typography: {
         fontSize: 16,
         fontFamily: "Montserrat",
+        button: {
+            textTransform: "none",
+        },
     },
 });
 
