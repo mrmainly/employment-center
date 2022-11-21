@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
 
-import { MainHeader, Footer } from "../components";
+import { MainHeader, Footer, MobileHeader } from "../components";
 import ROUTES from "../routes";
 
 const MainLayout = () => {
@@ -10,7 +10,14 @@ const MainLayout = () => {
     return (
         <div>
             {location.pathname !== ROUTES.HOME && <MainHeader />}
-            <Box sx={{ bgcolor: "bg.main" }}>
+            <MobileHeader />
+            <Box
+                sx={{
+                    bgcolor: "bg.main",
+                    overflow: "hidden",
+                    pb: 11.4,
+                }}
+            >
                 <Outlet />
             </Box>
             <Footer />

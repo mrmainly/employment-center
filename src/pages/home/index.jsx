@@ -6,6 +6,7 @@ import MapScreen from "./components/MapScreen";
 import NewsSliderWrapper from "./components/NewsSliderWrapper";
 import TestsAndSurveys from "./components/TestsAndSurveys";
 import PromoBoxs from "./components/PromoBoxs";
+import PartnersScreen from "./components/PartnersScreen";
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
                 <TestsAndSurveys />
                 <PromoBoxs />
             </Container>
+            <PartnersScreen />
         </div>
     );
 };

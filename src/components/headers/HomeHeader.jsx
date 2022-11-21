@@ -3,7 +3,11 @@ import { styled } from "@mui/system";
 
 import { Link } from "react-router-dom";
 
-const HeaderContainer = styled(Container)(({ theme }) => ({}));
+const HeaderContainer = styled(Container)(({ theme }) => ({
+    [theme.breakpoints.down("md")]: {
+        display: "none",
+    },
+}));
 
 const Menu = styled(Box)(({ theme }) => ({
     height: 80,

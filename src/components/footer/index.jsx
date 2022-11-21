@@ -93,12 +93,13 @@ const Footer = () => {
                         </Grid>
                     ))}
                 </Grid>
-                <Box sx={{ display: "flex", mt: 2 }}>
+                <Box sx={{ display: "flex", flexWrap: "wrap" }}>
                     {imglist.map((item, index) => (
                         <Img
                             key={index}
                             src={`/img/${item}`}
                             alt=""
+                            style={{ marginTop: 15 }}
                         />
                     ))}
                 </Box>

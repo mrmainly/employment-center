@@ -1,10 +1,4 @@
-import {
-    Container,
-    Box,
-    Typography,
-    TextField,
-    MenuItem,
-} from "@mui/material";
+import { Container, Box, Typography, TextField } from "@mui/material";
 import { styled } from "@mui/system";
 
 import { HomeHeader } from "../../../components";
@@ -12,13 +6,35 @@ import { HomeHeader } from "../../../components";
 const WrapperContainer = styled(Box)(({ theme }) => ({
     backgroundImage: "url(/img/HomeFirstScreen.png)",
     backgroundSize: "cover",
+    backgroundPosition: "center",
+    [theme.breakpoints.down("md")]: {
+        marginTop: 70,
+    },
 }));
 
 const CustomContainer = styled(Container)(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-end",
-    minHeight: 650,
+    height: 650,
+    [theme.breakpoints.down("md")]: {
+        justifyContent: "flex-start",
+        height: 330,
+        paddingTop: 50,
+    },
+    [theme.breakpoints.down("sm")]: {
+        height: 300,
+    },
+}));
+
+const SearchWrapper = styled(Box)(({ theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    marginTop: 70,
+    marginBottom: 100,
+    [theme.breakpoints.down("md")]: {
+        display: "none",
+    },
 }));
 
 const SearchTextField = styled(TextField)(({ theme }) => ({
@@ -43,6 +59,9 @@ const SearchTextField = styled(TextField)(({ theme }) => ({
             borderBottom: 0,
         },
     },
+    [theme.breakpoints.down("lg")]: {
+        width: 600,
+    },
 }));
 
 const FirstScreen = () => {
@@ -54,7 +73,11 @@ const FirstScreen = () => {
                     sx={{
                         color: "customColors.white",
                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-                        fontSize: 53,
+                        fontSize: {
+                            xs: 26,
+                            sm: 30,
+                            md: 53,
+                        },
                         fontWeight: 600,
                         width: {
                             xl: "65%",
@@ -71,21 +94,18 @@ const FirstScreen = () => {
                     sx={{
                         color: "customColors.white",
                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-                        fontSize: 28,
+                        fontSize: {
+                            xs: 18,
+                            sm: 22,
+                            md: 28,
+                        },
                         mt: 3,
                         fontWeight: 500,
                     }}
                 >
                     Портал для работодателей и соискателей Якутии
                 </Typography>
-                <Box
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        mt: 9,
-                        mb: 12,
-                    }}
-                >
+                <SearchWrapper>
                     <Box sx={{ display: "flex" }}>
                         <SearchTextField placeholder="Поиск вакансий" />
                         <Box
@@ -132,7 +152,7 @@ const FirstScreen = () => {
                             Фильтры
                         </Typography>
                     </Box>
-                </Box>
+                </SearchWrapper>
             </CustomContainer>
         </WrapperContainer>
     );

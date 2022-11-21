@@ -1,5 +1,7 @@
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import { ThemeProvider } from "@mui/material";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import MainLayout from "./layout/MainLayout";
 import ROUTES from "./routes";
@@ -11,7 +13,10 @@ function App() {
         <ThemeProvider theme={theme}>
             <BrowserRouter>
                 <Routes>
-                    <Route path={ROUTES.HOME} element={<MainLayout />}>
+                    <Route
+                        path={ROUTES.HOME}
+                        element={<MainLayout />}
+                    >
                         <Route index element={<Home />} />
                     </Route>
                 </Routes>
