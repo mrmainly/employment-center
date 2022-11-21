@@ -37,6 +37,23 @@ const SearchWrapper = styled(Box)(({ theme }) => ({
     },
 }));
 
+const MainText = styled("a")(({ theme }) => ({
+    fontFamily: "Montserrat",
+    background:
+        "linear-gradient(to right, rgba(100, 200, 200, 1), rgba(100, 200, 200, 1)), linear-gradient(to right, rgba(255, 0, 0, 1), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1))",
+    backgroundSize: "100% 0.1em, 0 0.1em",
+    backgroundPosition: "100% 100%, 0 100%",
+    backgroundRepeat: "no-repeat",
+    transition: "background-size 400ms",
+    animation: "myEffect 2s 1",
+    animationFillMode: "forwards",
+    "@keyframes myEffect": {
+        "100%": {
+            backgroundSize: "0 0.1em, 100% 0.1em",
+        },
+    },
+}));
+
 const SearchTextField = styled(TextField)(({ theme }) => ({
     width: 800,
     background: "white",
@@ -69,16 +86,9 @@ const FirstScreen = () => {
         <WrapperContainer>
             <HomeHeader />
             <CustomContainer maxWidth="xl">
-                <Typography
+                <Box
                     sx={{
-                        color: "customColors.white",
-                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-                        fontSize: {
-                            xs: 26,
-                            sm: 30,
-                            md: 53,
-                        },
-                        fontWeight: 600,
+                        boxSizing: "border-box",
                         width: {
                             xl: "65%",
                             lg: "50%",
@@ -88,8 +98,21 @@ const FirstScreen = () => {
                         },
                     }}
                 >
-                    Найдите работу мечты в любой точке Якутии
-                </Typography>
+                    <MainText
+                        sx={{
+                            color: "customColors.white",
+                            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                            fontSize: {
+                                xs: 26,
+                                sm: 30,
+                                md: 53,
+                            },
+                            fontWeight: 600,
+                        }}
+                    >
+                        Найдите работу мечты в любой точке Якутии
+                    </MainText>
+                </Box>
                 <Typography
                     sx={{
                         color: "customColors.white",
