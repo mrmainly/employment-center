@@ -8,6 +8,11 @@ const Card = styled(Box)(({ theme }) => ({
     display: "flex",
     justifyContent: "start",
     alignItems: "center",
+    cursor: "pointer",
+    "&:hover": {
+        boxShadow: "0px 0px 12px rgba(13, 153, 255, 0.5)",
+    },
+    transition: "all 500ms ease",
 }));
 
 const TestCard = ({ img, type, count, title }) => {

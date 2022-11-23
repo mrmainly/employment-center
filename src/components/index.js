@@ -8,6 +8,8 @@ import NewsSlider from "./sliders/NewsSlider";
 import TestCard from "./cards/TestCard";
 import PartnersCard from "./cards/PartnersCard";
 import PartnersSlider from "./sliders/PartnersSlider";
+import FeedBackModal from "./modals/FeedBackModal";
+import SearchInput from "./UI/search-input";
 
 export {
     MainHeader,
@@ -20,4 +22,6 @@ export {
     TestCard,
     PartnersCard,
     PartnersSlider,
+    FeedBackModal,
+    SearchInput,
 };

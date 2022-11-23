@@ -79,7 +79,7 @@ const Footer = () => {
                                         fontSize: 14,
                                         color: "customColors.white",
                                         opacity: 0.4,
-                                        transition: "all 1s ease",
+                                        transition: "all 500ms ease",
                                         cursor: "pointer",
                                         width: "max-content",
                                         "&:hover": {

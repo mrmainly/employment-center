@@ -1,7 +1,17 @@
-import { Box, Container, MenuItem, Typography } from "@mui/material";
+import { useState } from "react";
+import {
+    Box,
+    Container,
+    MenuItem,
+    Typography,
+    Menu,
+} from "@mui/material";
 import { styled } from "@mui/system";
-
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { ModalsSlice } from "../../reducer/ModalsSlice";
+import menuList from "../../local_list/menuList";
 
 const HeaderContainer = styled(Container)(({ theme }) => ({
     [theme.breakpoints.down("md")]: {
@@ -9,7 +19,7 @@ const HeaderContainer = styled(Container)(({ theme }) => ({
     },
 }));
 
-const Menu = styled(Box)(({ theme }) => ({
+const MenuHeader = styled(Box)(({ theme }) => ({
     height: 80,
     display: "flex",
     alignItems: "center",
@@ -26,7 +36,7 @@ const Logo = styled("img")(({ theme }) => ({
     width: "auto",
 }));
 
-const CustomLink = styled(Link)(({ theme }) => ({
+const CusMenuItem = styled(MenuItem)(({ theme }) => ({
     textDecoration: "none",
     marginLeft: 10,
     textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
@@ -34,50 +44,103 @@ const CustomLink = styled(Link)(({ theme }) => ({
 }));
 
 const HomeHeader = () => {
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const dispatch = useDispatch();
+    const open = Boolean(anchorEl);
+
+    const { handleFeedBackModal } = ModalsSlice.actions;
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     return (
         <HeaderContainer maxWidth="xl">
-            <Menu>
+            <MenuHeader>
                 <LeftMenu>
                     <Logo src="/img/logoSvg.svg" />
-                    <CustomLink to="/">
-                        <MenuItem>
+
+                    <Typography
+                        sx={{
+                            color: "customColors.white",
+                            fontWeight: 600,
+                            fontSize: 18,
+                            textShadow:
+                                "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                            marginLeft: 2,
+                            marginRight: 3,
+                        }}
+                    >
+                        Работа в Якутии
+                    </Typography>
+                    <Box>
+                        <CusMenuItem
+                            onClick={handleClick}
+                            aria-haspopup="true"
+                            aria-controls={
+                                open ? "basic-menu" : undefined
+                            }
+                            aria-expanded={open ? "true" : undefined}
+                        >
                             <Typography
                                 sx={{
                                     color: "customColors.white",
                                     fontWeight: 600,
-                                    fontSize: 20,
-                                }}
-                            >
-                                Работа в Якутии
-                            </Typography>
-                        </MenuItem>
-                    </CustomLink>
-                    <CustomLink to="/">
-                        <MenuItem>
-                            <Typography
-                                sx={{
-                                    color: "customColors.white",
-                                    fontWeight: 600,
-                                    fontSize: 20,
+                                    fontSize: 18,
                                 }}
                             >
                                 Гражданам
                             </Typography>
-                        </MenuItem>
-                    </CustomLink>
-                    <CustomLink to="/">
-                        <MenuItem>
-                            <Typography
-                                sx={{
-                                    color: "customColors.white",
-                                    fontWeight: 600,
-                                    fontSize: 20,
-                                }}
-                            >
-                                Обратная связь
-                            </Typography>
-                        </MenuItem>
-                    </CustomLink>
+                        </CusMenuItem>
+                        <Menu
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                        >
+                            {menuList.map((item, index) => (
+                                <Link
+                                    style={{ textDecoration: "none" }}
+                                    to={item.path}
+                                >
+                                    <MenuItem
+                                        sx={{ width: 300, mt: 0.5 }}
+                                        key={index}
+                                    >
+                                        <Typography
+                                            color="primary.main"
+                                            sx={{
+                                                fontWeight: 500,
+                                                fontSize: 18,
+                                            }}
+                                        >
+                                            {item.label}
+                                        </Typography>
+                                    </MenuItem>
+                                </Link>
+                            ))}
+                        </Menu>
+                    </Box>
+
+                    <CusMenuItem
+                        onClick={() =>
+                            dispatch(handleFeedBackModal(true))
+                        }
+                    >
+                        <Typography
+                            sx={{
+                                color: "customColors.white",
+                                fontWeight: 600,
+                                fontSize: 18,
+                            }}
+                        >
+                            Обратная связь
+                        </Typography>
+                    </CusMenuItem>
                 </LeftMenu>
                 <MenuItem>
                     <Typography
@@ -86,13 +149,13 @@ const HomeHeader = () => {
                             textShadow:
                                 "2px 2px 4px rgba(0, 0, 0, 0.5)",
                             fontWeight: 600,
-                            fontSize: 20,
+                            fontSize: 18,
                         }}
                     >
                         Для слабовидящих
                     </Typography>
                 </MenuItem>
-            </Menu>
+            </MenuHeader>
         </HeaderContainer>
     );
 };

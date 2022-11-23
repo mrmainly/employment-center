@@ -6,13 +6,14 @@ import "../cards.css";
 const Card = styled(Box)(({ theme }) => ({
     width: 250,
     height: 290,
-    boxShadow: "1px 2px 8px rgba(0, 0, 0, 0.15)",
+
     marginRight: 10,
     borderRadius: 12,
     marginTop: 20,
     marginBottom: 20,
     marginLeft: 10,
     position: "relative",
+    boxShadow: "1px 2px 8px rgba(0, 0, 0, 0.15)",
 }));
 
 const PreviewNewsCard = ({ date, img, description }) => {

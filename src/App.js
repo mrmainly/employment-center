@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import MainLayout from "./layout/MainLayout";
 import ROUTES from "./routes";
-import { Home } from "./pages";
+import { Home, BankVacancy } from "./pages";
 import theme from "./MuiTheme";
 
 function App() {
@@ -18,6 +18,10 @@ function App() {
                         element={<MainLayout />}
                     >
                         <Route index element={<Home />} />
+                        <Route
+                            path={ROUTES.BANK_VACANCY}
+                            element={<BankVacancy />}
+                        />
                     </Route>
                 </Routes>
             </BrowserRouter>
