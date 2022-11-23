@@ -4,6 +4,7 @@ import { styled } from "@mui/system";
 const SearchWrapper = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
+    height: 44,
     [theme.breakpoints.down("md")]: {
         display: "none",
     },
@@ -26,7 +27,7 @@ const SearchTextField = styled(TextField)(({ theme }) => ({
         },
     },
     "& .MuiInputBase-root": {
-        height: 44,
+        height: "100%",
     },
     "& .MuiInput-root": {
         "&:before, :after, :hover:not(.Mui-disabled):before": {
@@ -41,7 +42,7 @@ const SearchTextField = styled(TextField)(({ theme }) => ({
 const SearchInput = ({ ...props }) => {
     return (
         <SearchWrapper {...props}>
-            <Box sx={{ display: "flex" }}>
+            <Box sx={{ display: "flex", height: "100%" }}>
                 <SearchTextField placeholder="Поиск вакансий" />
                 <Button
                     variant="contained"
@@ -72,7 +73,7 @@ const SearchInput = ({ ...props }) => {
                 sx={{
                     bgcolor: "white",
                     borderRadius: 2,
-                    height: 44,
+                    height: "100%",
                     marginLeft: 1.5,
                     width: 120,
                     display: "flex",
