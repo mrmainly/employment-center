@@ -1,10 +1,11 @@
+import { lazy, Suspense } from "react";
 import { Typography, Box, Grid } from "@mui/material";
 
-import {
-    InteractiveMap,
-    InteractiveMapSideBar,
-} from "../../../../components";
-import mapData from "../../../../map-data/geojson.json";
+import { InteractiveMapSideBar } from "../../../../components";
+
+const LazyInteractiveMap = lazy(() =>
+    import("../../../../components/interactive-map")
+);
 
 const MapScreen = () => {
     return (
@@ -52,7 +53,9 @@ const MapScreen = () => {
                             justifyContent: "center",
                         }}
                     >
-                        <InteractiveMap map={{ ...mapData }} />
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <LazyInteractiveMap />
+                        </Suspense>
                     </Box>
                 </Grid>
                 <Grid

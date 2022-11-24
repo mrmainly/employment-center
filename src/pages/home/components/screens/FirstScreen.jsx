@@ -77,7 +77,11 @@ const FirstScreen = () => {
                     Портал для работодателей и соискателей Якутии
                 </Typography>
                 <SearchInput
-                    style={{ marginTop: 70, marginBottom: 100 }}
+                    style={{
+                        marginTop: 70,
+                        marginBottom: 100,
+                        height: 55,
+                    }}
                 />
             </CustomContainer>
         </WrapperContainer>

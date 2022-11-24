@@ -134,6 +134,7 @@ const MainHeader = () => {
                                                     mt: 0.5,
                                                 }}
                                                 key={index}
+                                                onClick={handleClose}
                                             >
                                                 <Typography
                                                     color="primary.main"

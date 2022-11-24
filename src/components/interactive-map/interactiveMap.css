@@ -1,0 +1,8 @@
+.region {
+    transition: all 500ms ease;
+    cursor: pointer;
+}
+
+.region:hover {
+    fill: #1b4e9b;
+}
