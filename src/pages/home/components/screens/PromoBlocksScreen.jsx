@@ -1,5 +1,4 @@
 import { Box, Typography, Button, Grid } from "@mui/material";
-import { styled } from "@mui/system";
 
 const PromoBoxs = () => {
     const imgList = [
