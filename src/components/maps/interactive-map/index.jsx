@@ -1,17 +1,34 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
-import mapData from "../../map-data/geodata";
+import mapData from "../../../map-data/geodata";
+import { useModal } from "../../../hooks";
+import { InteractionMapModal } from "../..";
 import "./interactiveMap.css";
 
 const InteractiveMap = () => {
     const [regionName, setRegionName] = useState("");
+    const [regionId, setRegionId] = useState(0);
+    const [modalData, setModalData] = useState({});
 
-    let navigate = useNavigate();
+    const { handleOpen, open } = useModal();
+
+    const handleRegion = (item) => {
+        setRegionId(item.ariaLabel);
+        setModalData({
+            title: item.ariaLabel,
+            coordinates: item.coordinates,
+        });
+        handleOpen();
+    };
 
     return (
         <div style={{ width: "98%", height: "98%", padding: 5 }}>
+            <InteractionMapModal
+                handleOpen={handleOpen}
+                open={open}
+                data={modalData}
+            />
             <Typography
                 sx={{ fontSize: 20, fontWeight: 500, height: 30 }}
                 color="primary.main"
@@ -38,6 +55,11 @@ const InteractiveMap = () => {
                         title=""
                         clipRule="evenodd"
                         d={item.d}
+                        style={{
+                            fill:
+                                regionId === item.ariaLabel &&
+                                "#E54D2B",
+                        }}
                         fill="#6AB9E8"
                         data-bs-original-title={
                             item.dataBsOriginalTitle
@@ -46,6 +68,7 @@ const InteractiveMap = () => {
                         onMouseOver={() =>
                             setRegionName(item.ariaLabel)
                         }
+                        onClick={() => handleRegion(item)}
                     ></path>
                 ))}
             </svg>

@@ -10,8 +10,10 @@ import PartnersCard from "./cards/PartnersCard";
 import PartnersSlider from "./sliders/PartnersSlider";
 import FeedBackModal from "./modals/FeedBackModal";
 import SearchInput from "./UI/search-input";
-import InteractiveMap from "./interactive-map";
+import InteractiveMap from "./maps/interactive-map";
 import InteractiveMapSideBar from "./side_bars/InteractiveMapSideBar";
+import YandexMap from "./maps/yandex_map";
+import InteractionMapModal from "./modals/InteractionMapModal";
 
 export {
     MainHeader,
@@ -28,4 +30,6 @@ export {
     SearchInput,
     InteractiveMap,
     InteractiveMapSideBar,
+    YandexMap,
+    InteractionMapModal,
 };

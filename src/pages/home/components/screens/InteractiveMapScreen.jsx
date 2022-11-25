@@ -4,7 +4,7 @@ import { Typography, Box, Grid } from "@mui/material";
 import { InteractiveMapSideBar } from "../../../../components";
 
 const LazyInteractiveMap = lazy(() =>
-    import("../../../../components/interactive-map")
+    import("../../../../components/maps/interactive-map")
 );
 
 const MapScreen = () => {
