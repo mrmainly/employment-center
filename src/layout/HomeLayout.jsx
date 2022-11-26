@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 
-import { MainHeader, Footer, MobileHeader, FeedBackModal } from "../components";
+import { Footer, MobileHeader, FeedBackModal } from "../components";
 
-const MainLayout = () => {
+const HomeLayout = () => {
     return (
         <div>
-            <MainHeader />
             <MobileHeader />
             <FeedBackModal />
             <Box
@@ -14,17 +13,14 @@ const MainLayout = () => {
                     bgcolor: "bg.main",
                     overflow: "hidden",
                     pb: 11.4,
-                    pt: 24,
                     minHeight: 800,
                 }}
             >
-                <Container maxWidth="xl">
-                    <Outlet />
-                </Container>
+                <Outlet />
             </Box>
             <Footer />
         </div>
     );
 };
 
-export default MainLayout;
+export default HomeLayout;

@@ -1,4 +1,4 @@
 import Home from "./home";
-import BankVacancy from "./bank-vacancy";
+import Vacancy from "./vacancy";
 
-export { Home, BankVacancy };
+export { Home, Vacancy };

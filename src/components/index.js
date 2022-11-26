@@ -14,6 +14,7 @@ import InteractiveMap from "./maps/interactive-map";
 import InteractiveMapSideBar from "./side_bars/InteractiveMapSideBar";
 import YandexMap from "./maps/yandex_map";
 import InteractionMapModal from "./modals/InteractionMapModal";
+import MyBreadcrumbs from "./breadcrumbs";
 
 export {
     MainHeader,
@@ -32,4 +33,5 @@ export {
     InteractiveMapSideBar,
     YandexMap,
     InteractionMapModal,
+    MyBreadcrumbs,
 };
